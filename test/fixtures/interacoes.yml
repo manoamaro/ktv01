@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tempo: 1
+  data: 2011-07-29 00:33:41
+  emissora: 
+  programa: 
+  stb: 
+
+two:
+  tempo: 1
+  data: 2011-07-29 00:33:41
+  emissora: 
+  programa: 
+  stb: 

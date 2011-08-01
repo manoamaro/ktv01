@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  sinopse: MyString
+  duracao: 1
+  inicio: 2011-07-29 00:32:05
+  fim: 2011-07-29 00:32:05
+  classificacao: 
+
+two:
+  nome: MyString
+  sinopse: MyString
+  duracao: 1
+  inicio: 2011-07-29 00:32:05
+  fim: 2011-07-29 00:32:05
+  classificacao: 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  inicio: 2011-07-30 09:37:20
+  fim: 2011-07-30 09:37:20
+  emissora: 
+  programa: 
+
+two:
+  inicio: 2011-07-30 09:37:20
+  fim: 2011-07-30 09:37:20
+  emissora: 
+  programa: 

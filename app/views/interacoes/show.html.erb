@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tempo:</b>
+  <%= @interacao.tempo %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @interacao.data %>
+</p>
+
+<p>
+  <b>Emissora:</b>
+  <%= @interacao.emissora %>
+</p>
+
+<p>
+  <b>Programa:</b>
+  <%= @interacao.programa %>
+</p>
+
+<p>
+  <b>Stb:</b>
+  <%= @interacao.stb %>
+</p>
+
+
+<%= link_to 'Edit', edit_interacao_path(@interacao) %> |
+<%= link_to 'Back', interacoes_path %>

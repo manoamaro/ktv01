@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Inicio:</b>
+  <%= @programacao.inicio %>
+</p>
+
+<p>
+  <b>Fim:</b>
+  <%= @programacao.fim %>
+</p>
+
+<p>
+  <b>Emissora:</b>
+  <%= @programacao.emissora %>
+</p>
+
+<p>
+  <b>Programa:</b>
+  <%= @programacao.programa %>
+</p>
+
+
+<%= link_to 'Edit', edit_programacao_path(@programacao) %> |
+<%= link_to 'Back', programacoes_path %>

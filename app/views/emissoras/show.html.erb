@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @emissora.nome %>
+</p>
+
+<p>
+  <b>Canal:</b>
+  <%= @emissora.canal %>
+</p>
+
+
+<%= link_to 'Edit', edit_emissora_path(@emissora) %> |
+<%= link_to 'Back', emissoras_path %>

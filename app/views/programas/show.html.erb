@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @programa.nome %>
+</p>
+
+<p>
+  <b>Sinopse:</b>
+  <%= @programa.sinopse %>
+</p>
+
+<p>
+  <b>Duracao:</b>
+  <%= @programa.duracao %>
+</p>
+
+<p>
+  <b>Inicio:</b>
+  <%= @programa.inicio %>
+</p>
+
+<p>
+  <b>Fim:</b>
+  <%= @programa.fim %>
+</p>
+
+<p>
+  <b>Classificacao:</b>
+  <%= @programa.classificacao %>
+</p>
+
+
+<%= link_to 'Edit', edit_programa_path(@programa) %> |
+<%= link_to 'Back', programas_path %>
