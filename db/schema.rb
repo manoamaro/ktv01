@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(:version => 20110802141528) do
   add_index "generos", ["nome"], :name => "index_generos_on_nome"
 
   create_table "generos_programas", :id => false, :force => true do |t|
-    t.integer  "programa_id"
-    t.integer  "genero_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "programa_id"
+    t.integer "genero_id"
   end
 
   create_table "interacoes", :force => true do |t|

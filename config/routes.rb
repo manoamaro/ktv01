@@ -1,5 +1,9 @@
 Ktv01::Application.routes.draw do
 
+  get "gerar_arff/index"
+
+  get "gerar_arff/gerar"
+
   resources :programacoes
 
   post "envioxml/enviar"
