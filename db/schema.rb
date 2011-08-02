@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110730155008) do
+ActiveRecord::Schema.define(:version => 20110802141528) do
 
   create_table "classificacoes", :force => true do |t|
     t.string   "descricao"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20110730155008) do
 
   create_table "programas", :force => true do |t|
     t.string   "nome"
-    t.string   "sinopse"
+    t.text     "sinopse"
     t.integer  "duracao"
     t.integer  "classificacao_id"
     t.datetime "created_at"

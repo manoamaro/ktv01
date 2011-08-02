@@ -16,6 +16,7 @@ class EnvioxmlController < ApplicationController
     @interacao.programa = Programa.find_or_initialize_by_nome(XPath.first(@doc, "//interacao/programa/nome").text.to_s)
     @interacao.programa.sinopse = XPath.first(@doc, "//interacao/programa/sinopse").text.to_s
     @interacao.programa.duracao = XPath.first(@doc, "//interacao/programa/duracao").text.to_i
+    @interacao.programa.classificacao = Classificacao.find(XPath.first(@doc, "//interacao/programa/classificacao").text.to_i)
     
     emissora = Emissora.find_or_create_by_nome_and_canal(XPath.first(@doc, "//interacao/programa/programacao/emissora/nome").text.to_s, XPath.first(@doc, "//interacao/programa/programacao/emissora/canal").text.to_i)
     inicio = XPath.first(@doc, "//interacao/programa/programacao/inicio").text.to_datetime
@@ -27,7 +28,8 @@ class EnvioxmlController < ApplicationController
     @interacao.stb = Stb.find_or_create_by_identifier(XPath.first(@doc, "//interacao/stb/identifier").text.to_s)
     
     XPath.each(@doc, "//interacao/programa/generos/genero") do |genero|
-      @interacao.programa.generos << Genero.find_or_create_by_nome(genero.text)
+      genero_bd = Genero.find_or_create_by_nome(genero.text)
+      @interacao.programa.generos << genero_bd if not @interacao.programa.generos.include?(genero_bd)
     end
 
     if not @interacao.programa.persisted?

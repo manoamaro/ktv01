@@ -1,0 +1,36 @@
+%table
+  %tr
+    %td SetTopBox id:
+    %td
+      = @interacao.stb.identifier
+  %tr
+    %td Data da interação:
+    %td
+      = @interacao.data
+  %tr
+    %td Tempo da interação:
+    %td
+      = @interacao.tempo
+  %tr
+    %td Nome do programa:
+    %td
+      = @interacao.programa.nome
+  %tr
+    %td Sinopse do programa:
+    %td
+      = @interacao.programa.sinopse
+  %tr
+    %td Classificação do programa:
+    %td
+      = @interacao.programa.classificacao.descricao
+  %tr
+    %td Generos do programa:
+    %td
+      - @interacao.programa.generos.each do |g|
+        #{g.nome} 
+  %tr
+    %td Emissora:
+    %td
+      = @interacao.programacao.emissora.nome
+
+= button_to :Voltar, :action => :index
