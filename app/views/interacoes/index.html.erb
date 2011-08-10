@@ -16,8 +16,8 @@
   <tr>
     <td><%= interacao.tempo %></td>
     <td><%= interacao.data %></td>
-    <td><%= interacao.programacao.emissora.nome %></td>
-    <td><%= interacao.programa.nome %></td>
+    <td><%= link_to interacao.programacao.emissora.nome, emissora_path(interacao.programacao.emissora) %></td>
+    <td><%= link_to interacao.programa.nome, programa_path(interacao.programa) %></td>
     <td><%= interacao.stb.identifier %></td>
     <td><%= link_to 'Show', interacao %></td>
     <td><%= link_to 'Edit', edit_interacao_path(interacao) %></td>

@@ -5,6 +5,14 @@
   <%= @stb.identifier %>
 </p>
 
+<p>
+  <b>Interações:</b>
+  <% @stb.interacoes.each do |interacao| %>
+  	<p><%= link_to interacao.data, interacao_path(interacao) %></p>
+  <% end %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_stb_path(@stb) %> |
 <%= link_to 'Back', stbs_path %>

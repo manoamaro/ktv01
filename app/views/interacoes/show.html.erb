@@ -12,17 +12,17 @@
 
 <p>
   <b>Emissora:</b>
-  <%= @interacao.emissora %>
+  <%= link_to @interacao.programacao.emissora.nome, emissora_path(@interacao.programacao.emissora) %>
 </p>
 
 <p>
   <b>Programa:</b>
-  <%= @interacao.programa %>
+  <%= link_to @interacao.programa.nome, programa_path(@interacao.programa) %>
 </p>
 
 <p>
   <b>Stb:</b>
-  <%= @interacao.stb %>
+  <%= link_to @interacao.stb.identifier, stb_path(@interacao.stb) %>
 </p>
 
 

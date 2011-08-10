@@ -5,6 +5,13 @@
   <%= @classificacao.descricao %>
 </p>
 
+<p>
+  <b>Programas com essa classificacao:</b>
+  <% @classificacao.programas.each do |programa| %>
+	  <p><%= link_to programa.nome, programa_path(programa) %></p>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_classificacao_path(@classificacao) %> |
 <%= link_to 'Back', classificacoes_path %>

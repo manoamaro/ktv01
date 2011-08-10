@@ -16,20 +16,40 @@
 </p>
 
 <p>
+  <b>Classificacao:</b>
+  <%= link_to @programa.classificacao.descricao, classificacao_path(@programa.classificacao) %>
+</p>
+
+<p>
+	<b>Gêneros</b>
+	<% @programa.generos.each do |genero| %>
+		<p><%= link_to genero.nome, genero_path(genero) %></p>
+	<% end %>
+</p>
+
+
+<p>
+	<h4>Programações</h4>
+</p>
+<% @programa.programacoes.each do |programacao| %>
+
+<p>
+  <b>Emissora:</b>
+  <%= link_to programacao.emissora.nome, emissora_path(programacao.emissora) %>
+</p>
+
+
+<p>
   <b>Inicio:</b>
-  <%= @programa.inicio %>
+  <%= programacao.inicio %>
 </p>
 
 <p>
   <b>Fim:</b>
-  <%= @programa.fim %>
+  <%= programacao.fim %>
 </p>
 
-<p>
-  <b>Classificacao:</b>
-  <%= @programa.classificacao %>
-</p>
-
+<% end %>
 
 <%= link_to 'Edit', edit_programa_path(@programa) %> |
 <%= link_to 'Back', programas_path %>
