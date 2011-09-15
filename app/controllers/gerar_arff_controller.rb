@@ -3,6 +3,7 @@ class GerarArffController < ApplicationController
   end
 
   def gerar
+    @interacoes = Interacao.all
   end
 
 end

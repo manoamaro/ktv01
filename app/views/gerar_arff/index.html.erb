@@ -1,3 +1,75 @@
-<% form_for :campos, :action => :gerar do |f| %>
-  <%= f.text_field :testando %>
-<% end %>
+<table>
+  <tr>
+    <td colspan="2", style="text-align:center"><h3>Gerar ARFF</h3></td>
+  </tr>
+  <tr>
+    <th>Tabela</th>
+    <th>Colunas</th>
+  </tr>
+  <% form_tag gerar_arff_path, :method => :post do |f| %>
+    <tr>
+      <td>
+        Interação
+      </td>
+      <td>
+        <ul>
+          <% Interacao.column_names.each do |column| %>
+            <li><%= check_box_tag 'interacao[]', column %><%= column %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Programa
+      </td>
+      <td>
+        <ul>
+          <% Programa.column_names.each do |column| %>
+            <li><%= check_box_tag 'programa[]', column %><%= column %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Emissora
+      </td>
+      <td>
+        <ul>
+          <% Emissora.column_names.each do |column| %>
+            <li><%= check_box_tag 'emissora[]', column %><%= column %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Gênero
+      </td>
+      <td>
+        <ul>
+          <% Genero.column_names.each do |column| %>
+            <li><%= check_box_tag 'genero[]', column %><%= column %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Set-Top Box
+      </td>
+      <td>
+        <ul>
+          <% Stb.column_names.each do |column| %>
+            <li><%= check_box_tag 'stb[]', column %><%= column %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2", style="text-align:center"><%= submit_tag "Gerar Arff" %></td>
+    </tr>
+  <% end %>
+</table>
