@@ -8,7 +8,7 @@ gem 'pg'
 gem 'sqlite3'
 gem 'haml'
 gem 'jquery-rails'
-gem 'mysql'
+#gem 'mysql'
 
 
 # Use unicorn as the web server
