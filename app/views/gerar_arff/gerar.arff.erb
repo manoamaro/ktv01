@@ -1,32 +1,8 @@
 @RELATION interacoes
 
-<% if params[:interacao] %>
-  <% Interacao.columns.select {|c| params[:interacao].include?(c.name)}.each do |c| %>
-@ATTRIBUTE <%= c.name %> <%= normalize_arff_type c.type %>
-  <% end %>
+<% @campos.each do |c,t| %>
+@ATTRIBUTE <%= c %> <%= normalize_arff_type t %>
 <% end %>
-<% if params[:programa] %>
-  <% Programa.columns.select {|c| params[:programa].include?(c.name)}.each do |c| %>
-@ATTRIBUTE <%= c.name %> <%= normalize_arff_type c.type %>
-  <% end %>
-<% end %>
-<% if params[:emissora] %>
-  <% Emissora.columns.select {|c| params[:emissora].include?(c.name)}.each do |c| %>
-@ATTRIBUTE <%= c.name %> <%= normalize_arff_type c.type %>
-  <% end %>
-<% end %>
-<% if params[:genero] %>
-  <% Programa.columns.select {|c| params[:genero].include?(c.name)}.each do |c| %>
-@ATTRIBUTE <%= c.name %> <%= normalize_arff_type c.type %>
-  <% end %>
-<% end %>
-<% if params[:stb] %>
-  <% Stb.columns.select {|c| params[:stb].include?(c.name)}.each do |c| %>
-@ATTRIBUTE <%= c.name %> <%= normalize_arff_type c.type %>
-  <% end %>
-<% end %>
-
-
 
 @DATA
 

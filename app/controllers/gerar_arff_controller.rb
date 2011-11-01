@@ -3,66 +3,43 @@ class GerarArffController < ApplicationController
   end
 
   def gerar
-    select = <<-END_OF_STRING
-      SELECT 
-      #{gerar_selects}
-      FROM interacoes
-      JOIN programas on programas.id = interacoes.id
-      JOIN stbs on stbs.id = interacoes.id
-      JOIN programacoes on programacoes.id = interacoes.id
-      JOIN emissoras on emissoras.id = programacoes.emissora_id
-      JOIN generos_programas on generos_programas.programa_id = programas.id
-      JOIN generos on generos.id = generos_programas.genero_id
-    END_OF_STRING
-    @result = ActiveRecord::Base.connection.execute(select)
-    
     @result = Array.new
+    @campos = Hash.new
     
     Interacao.all.each do |interacao|
       r = Array.new
       params[:interacao].each do |p|
         r << interacao[p]
-      end
+        @campos["interacao_#{p}"] = interacao[p].class.name
+      end if params[:interacao].present?
       params[:programa].each do |p|
         r << interacao.programa[p]
-      end
+        @campos["programa_#{p}"] = interacao.programa[p].class.name
+      end if params[:programa].present?
+      params[:emissora].each do |p|
+        r << interacao.programacao.emissora[p]
+        @campos["emissora_#{p}"] = interacao.programacao.emissora[p].class.name
+      end if params[:emissora].present?
+      params[:genero].each do |p|
+        r << interacao.programa.generos[0][p]
+        @campos["genero_#{p}"] = interacao.programa.generos[0][p].class.name
+      end if params[:genero].present?
       @result << r
     end
+
+    path = "#{Rails.root}/tmp/output.arff"
+#    file = File.new(path, 'w')
+#    file.puts render_to_string 'gerar', :format => :arff
+#    file.close
     
     dir = Rails.root.to_s + "/lib/"
     Rjb::load(dir+"mysql-connector.jar:"+dir+"weka.jar", jvmargs=["-Xmx1000M"])
-    query = Rjb::import("weka.experiment.InstanceQuery").new
-    query.setUsername("root")
-    query.setPassword("dharma")
-    query.setQuery(select)
-#    data = query.retrieveInstances
-#    kmeans = Rjb::import("weka.clusterers.SimpleKMeans").new
-#    kmeans.buildClusterer(data)
-    respond_to do |format|
-      format.html
-      format.arff
-    end
+    obj = Rjb::import("weka.associations.Apriori")
+    kmeans = obj.new
+    labor_src = Rjb::import("java.io.FileReader").new(path)
+    labor_data = Rjb::import("weka.core.Instances").new(labor_src)
+    kmeans.buildAssociations(labor_data)
+    
+    render :text =>  kmeans.toString
   end
-
-  def gerar_selects()
-    select = Array.new
-    select << gerar_select('interacoes',params[:interacao])
-    select << gerar_select('programas',params[:programa])
-    select << gerar_select('emissoras',params[:emissora])
-    select << gerar_select('generos',params[:genero])
-    select << gerar_select('stbs',params[:stb])
-    select.delete_if do |i| 
-      i.nil? 
-    end.join(',')
-  end
-
-  def gerar_select(nome,param)
-    return nil if param.nil?
-    s = Array.new
-    param.each do |p|
-      s << "#{nome}.#{p}"
-    end
-    s.join(',')
-  end
-
 end

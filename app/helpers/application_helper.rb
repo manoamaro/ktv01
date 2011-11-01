@@ -2,11 +2,11 @@ module ApplicationHelper
 
   def normalize_arff_type(type)
     case type
-      when "integer", "double", "decimal", "float"
+      when "Integer", "Double", "Decimal", "Float", "Fixnum"
         return "numeric"
-      when "string", "char", "text"
+      when "String", "Char", "Text"
         return "string"
-      when "datetime", "date", "time"
+      when "Datetime", "Date", "Time"
         return "date"
     end
   end
