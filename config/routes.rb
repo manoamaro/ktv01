@@ -2,7 +2,7 @@ Ktv01::Application.routes.draw do
 
   get "gerar_arff/index"
 
-  post "gerar_arff/gerar", :as => :gerar_arff
+  get "gerar_arff/gerar", :as => :gerar_arff
 
   resources :programacoes
 

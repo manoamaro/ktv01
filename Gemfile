@@ -8,6 +8,8 @@ gem 'pg'
 gem 'sqlite3'
 gem 'haml'
 gem 'jquery-rails'
+gem 'rjb'
+gem 'mysql'
 #gem 'mysql'
 
 

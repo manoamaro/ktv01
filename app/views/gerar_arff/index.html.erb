@@ -6,7 +6,7 @@
     <th>Tabela</th>
     <th>Colunas</th>
   </tr>
-  <% form_tag gerar_arff_path, :method => :post do |f| %>
+  <% form_tag gerar_arff_path(:format => :arff), :method => :get do |f| %>
     <tr>
       <td>
         Interação

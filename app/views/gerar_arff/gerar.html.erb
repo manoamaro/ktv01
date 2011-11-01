@@ -26,6 +26,8 @@
   <% end %>
 <% end %>
 <br /><br />
-@data
-
-<%= @result %>
+@data<br />
+<% @result.each do |r| %>
+    <%= r.join(',') %>
+  <br />
+<% end %>

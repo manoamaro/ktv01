@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20110802141528) do
 
   create_table "programas", :force => true do |t|
     t.string   "nome"
-    t.text     "sinopse",          :limit => 255
+    t.text     "sinopse"
     t.integer  "duracao"
     t.integer  "classificacao_id"
     t.datetime "created_at"
