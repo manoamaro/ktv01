@@ -28,9 +28,9 @@ class GerarArffController < ApplicationController
     end
 
     path = "#{Rails.root}/tmp/output.arff"
-#    file = File.new(path, 'w')
-#    file.puts render_to_string 'gerar', :format => :arff
-#    file.close
+    file = File.new(path, 'w')
+    file.puts render_to_string 'gerar', :format => :arff
+    file.close
     
     dir = Rails.root.to_s + "/lib/"
     Rjb::load(dir+"mysql-connector.jar:"+dir+"weka.jar", jvmargs=["-Xmx1000M"])
