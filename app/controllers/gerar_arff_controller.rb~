@@ -36,7 +36,7 @@ class GerarArffController < ApplicationController
     Rjb::load(dir+"mysql-connector.jar:"+dir+"weka.jar", jvmargs=["-Xmx1000M"])
     obj = Rjb::import("weka.associations.Apriori")
     kmeans = obj.new
-    labor_src = Rjb::import("java.io.FileReader").new(path + "teste.arff")
+    labor_src = Rjb::import("java.io.FileReader").new(path)
     labor_data = Rjb::import("weka.core.Instances").new(labor_src)
     kmeans.buildAssociations(labor_data)
     
