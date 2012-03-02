@@ -10,8 +10,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'rjb'
 gem 'mysql'
-#gem 'mysql'
-
+gem 'nokogiri'
 
 # Use unicorn as the web server
 # gem 'unicorn'

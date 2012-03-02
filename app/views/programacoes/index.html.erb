@@ -18,12 +18,7 @@
     <td><%= programacao.emissora.nome %></td>
     <td><%= programacao.programa.nome %></td>
     <td><%= link_to 'Show', programacao %></td>
-    <td><%= link_to 'Edit', edit_programacao_path(programacao) %></td>
-    <td><%= link_to 'Destroy', programacao, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
 <br />
-
-<%= link_to 'New Programacao', new_programacao_path %>

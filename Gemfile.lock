@@ -45,6 +45,7 @@ GEM
     mime-types (1.16)
     mysql (2.8.1)
     mysql (2.8.1-x86-mingw32)
+    nokogiri (1.5.0)
     pg (0.11.0)
     pg (0.11.0-x86-mingw32)
     polyglot (0.3.2)
@@ -86,6 +87,7 @@ DEPENDENCIES
   haml
   jquery-rails
   mysql
+  nokogiri
   pg
   rails (= 3.0.9)
   rake

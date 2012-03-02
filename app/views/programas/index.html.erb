@@ -16,12 +16,8 @@
     <td><%= programa.sinopse %></td>
     <td><%= programa.duracao %></td>
     <td><%= link_to 'Show', programa %></td>
-    <td><%= link_to 'Edit', edit_programa_path(programa) %></td>
-    <td><%= link_to 'Destroy', programa, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Programa', new_programa_path %>

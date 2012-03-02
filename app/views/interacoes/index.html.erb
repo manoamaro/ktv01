@@ -20,12 +20,7 @@
     <td><%= link_to interacao.programa.nome, programa_path(interacao.programa) %></td>
     <td><%= interacao.stb.identifier %></td>
     <td><%= link_to 'Show', interacao %></td>
-    <td><%= link_to 'Edit', edit_interacao_path(interacao) %></td>
-    <td><%= link_to 'Destroy', interacao, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
 <br />
-
-<%= link_to 'New Interacao', new_interacao_path %>

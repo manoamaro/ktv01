@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           elementFormDefault="qualified">
+  <xs:element name="interacao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="data" type="xs:string"/>
+        <xs:element name="tempo" type="xs:integer"/>
+        <xs:element name="stb">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="identifier" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="programa">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nome" type="xs:string"/>
+              <xs:element name="sinopse" type="xs:string"/>
+              <xs:element name="classificacao" type="xs:string"/>
+              <xs:element name="duracao" type="xs:string"/>
+              <xs:element name="generos">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="genero" type="xs:string" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="programacao">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="inicio" type="xs:string"/>
+                    <xs:element name="fim" type="xs:string"/>
+                    <xs:element name="emissora">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="nome" type="xs:string"/>
+                          <xs:element name="canal" type="xs:integer"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

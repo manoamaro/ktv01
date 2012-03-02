@@ -1,24 +1,28 @@
 Ktv01::Application.routes.draw do
 
-  get "gerar_arff/index"
+  match 'gerar_arff' => "gerar_arff#index"
 
   get "gerar_arff/gerar", :as => :gerar_arff
 
-  resources :programacoes
+  resources :programacoes, :only => [:index, :show]
 
   post "envioxml/enviar"
+  
+  match 'envioxml/enviar' => "envioxml#index", :method => :get
 
-  resources :interacoes
+  resources :interacoes, :only => [:index, :show]
 
-  resources :stbs
+  resources :stbs, :only => [:index, :show]
 
-  resources :classificacoes
+  resources :classificacoes, :only => [:index, :show]
 
-  resources :emissoras
+  resources :emissoras, :only => [:index, :show]
 
-  resources :generos
+  resources :generos, :only => [:index, :show]
 
-  resources :programas
+  resources :programas, :only => [:index, :show]
+
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -69,7 +73,7 @@ Ktv01::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "envioxml#index"
+  
 
   # See how all your routes lay out with "rake routes"
 
