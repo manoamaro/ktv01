@@ -1,6 +1,6 @@
 Ktv01::Application.routes.draw do
 
-  match 'gerar_arff' => "gerar_arff#index"
+  match 'gerar_arff' => "gerar_arff#index", :as => :gerar_arff_index
 
   get "gerar_arff/gerar", :as => :gerar_arff
 

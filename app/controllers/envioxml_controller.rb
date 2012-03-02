@@ -42,7 +42,6 @@ class EnvioxmlController < ApplicationController
         @interacao.programa.save
       end
       if @interacao.save
-        system "java -jar #{Rails.root}/lib/MiningProcess.jar"
         render :text => "OK", :status => 202
       else
         render :text => @interacao.errors
