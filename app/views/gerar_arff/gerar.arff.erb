@@ -1,22 +1,17 @@
 @RELATION interacoes
 
 <% @campos.each do |c,t| %>
-@ATTRIBUTE <%= c %> <%= normalize_arff_type t %>
+@ATTRIBUTE <%= c %> <%= t.html_safe %>
 <% end %>
 
 @DATA
 
 <% @result.each do |r| %>
 <%= r.collect do |i| 
-      i
-      if i.is_a? String 
-        "'#{i}'"
+      if i.is_a? Time 
+        "\"#{to_date_time(i)}\""
       else
-        if i.is_a? Time 
-          "'#{to_date_time(i)}'"
-        else
-          i
-        end
+      "\"#{i}\""
       end
-    end.join(',') %>
+    end.join(',').html_safe %>
 <% end %>

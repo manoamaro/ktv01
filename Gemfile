@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'rjb'
 gem 'mysql'
 gem 'nokogiri'
-
+gem 'whenever', :require => false
 # Use unicorn as the web server
 # gem 'unicorn'
 

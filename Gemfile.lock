@@ -30,6 +30,7 @@ GEM
     activesupport (3.0.9)
     arel (2.0.10)
     builder (2.1.2)
+    chronic (0.6.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     haml (3.1.2)
@@ -78,6 +79,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    whenever (0.7.0)
+      activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
 
 PLATFORMS
   ruby
@@ -93,3 +97,4 @@ DEPENDENCIES
   rake
   rjb
   sqlite3
+  whenever
